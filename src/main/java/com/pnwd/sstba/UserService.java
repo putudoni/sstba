@@ -23,9 +23,10 @@ public class UserService {
 		userRepository.save(user);
 	}
 	
-	public Optional<User> findByUsernameAndPassword(String username, String password){
-		return userRepository.findByUsernameAndPassword(username,password);
+	public Optional<User> findByUsername(String username){
+		return userRepository.findByUsername(username);
 	}
+	
 	public Optional<org.springframework.security.core.userdetails.User> findByToken(String token){
 		Optional<User> userToken = userRepository.findByToken(token);
 		if(userToken.isPresent()) {
