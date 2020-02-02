@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 public class SstbaApplication implements CommandLineRunner {
@@ -15,6 +16,9 @@ public class SstbaApplication implements CommandLineRunner {
 	@Autowired
 	private MongoTemplate mongoTemplate;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SstbaApplication.class, args);
 	}
@@ -24,8 +28,8 @@ public class SstbaApplication implements CommandLineRunner {
 		if(mongoTemplate.findAll(User.class).size() == 0) {
 			User user = new User();
 			user.setUsername("admin");
-			user.setPassword("e38ad214943daad1d64c102faec29de4afe9da3d");
-			user.setToken("e4d437bb37fedc4183ee3f658b13c6633593a4a8");
+			user.setPassword(passwordEncoder.encode("password"));
+			user.setToken("$2a$10$3MlaAZ4EoflQbTvkZYPXzOzf97uCd8rnMeBcX1u91TIcWfNA5GxkW");
 			userService.save(user);
 			System.out.println("API_KEY = "+user.getToken());
 		}
