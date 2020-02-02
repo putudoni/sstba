@@ -11,7 +11,7 @@ public class ResponseApi {
 
 	private String status;
 
-	private String data;
+	private Object data;
 
 	private String messages;
 
@@ -23,11 +23,11 @@ public class ResponseApi {
 		this.status = status;
 	}
 
-	public String getData() {
+	public Object getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(Object data) {
 		this.data = data;
 	}
 
