@@ -3,12 +3,14 @@
  */
 package com.pnwd.sstba;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.validation.constraints.NotEmpty;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
@@ -30,8 +32,10 @@ public class User {
 
 	private String token;
 
+	@CreatedDate
+	@Field("created_date")
 	@DateTimeFormat(iso=ISO.DATE_TIME)
-	private Date createdDate;
+	private Date createdDate = new Date();
 
 	public String getId() {
 		return id;
