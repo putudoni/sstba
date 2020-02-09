@@ -17,4 +17,6 @@ public class SstbaAppConstants {
 	
 	public static final String INVALID_PASSWORD_MESSAGE = "Invalid password";
 	
+	public static final String USER_NOTFOUD_MESSAGE = "User not found";
+	
 }
