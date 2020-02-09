@@ -23,8 +23,6 @@ import org.springframework.security.web.util.matcher.RequestMatcher;
  */
 public class AuthenticationFilter extends AbstractAuthenticationProcessingFilter {
 
-	private static final String AUTHORIZATION = "API_KEY";
-
 	protected AuthenticationFilter(RequestMatcher requiresAuthenticationRequestMatcher) {
 		super(requiresAuthenticationRequestMatcher);
 	}
@@ -32,7 +30,7 @@ public class AuthenticationFilter extends AbstractAuthenticationProcessingFilter
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException, IOException, ServletException {
-		String token = request.getHeader(AUTHORIZATION);
+		String token = request.getHeader(SstbaAppConstants.AUTHORIZATION_HEADER);
 		Authentication auth = new UsernamePasswordAuthenticationToken(token, token);
 		return getAuthenticationManager().authenticate(auth);
 	}

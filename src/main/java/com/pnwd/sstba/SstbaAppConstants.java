@@ -9,7 +9,7 @@ package com.pnwd.sstba;
  */
 public class SstbaAppConstants {
 
-	public static final String AUTHORIZATION = "API_KEY";
+	public static final String AUTHORIZATION_HEADER = "API_KEY";
 	
 	public static final String TOKEN_ATTR = "token";
 
