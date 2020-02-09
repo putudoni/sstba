@@ -10,5 +10,7 @@ package com.pnwd.sstba;
 public class SstbaAppConstants {
 
 	public static final String AUTHORIZATION = "API_KEY";
+
+	public static final String TOKEN_REQUIRED_MESSAGE = "API_KEY is null";
 	
 }
