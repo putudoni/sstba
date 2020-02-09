@@ -15,4 +15,6 @@ public class SstbaAppConstants {
 
 	public static final String TOKEN_REQUIRED_MESSAGE = "API_KEY is null";
 	
+	public static final String INVALID_PASSWORD_MESSAGE = "Invalid password";
+	
 }
