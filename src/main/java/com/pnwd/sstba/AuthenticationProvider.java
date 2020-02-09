@@ -32,8 +32,8 @@ public class AuthenticationProvider extends AbstractUserDetailsAuthenticationPro
 	protected UserDetails retrieveUser(String username, UsernamePasswordAuthenticationToken authentication)
 			throws AuthenticationException {
 		Object token = authentication.getCredentials();
-		if(token==null) throw new UsernameNotFoundException("API_KEY is null");
-		User user = userService.findByToken(token.toString()).orElseThrow(() -> new UsernameNotFoundException("Invalid Token=" + token));
+		if(token==null) throw new UsernameNotFoundException(SstbaAppConstants.TOKEN_REQUIRED_MESSAGE);
+		User user = userService.findByToken(token.toString()).orElseThrow(() -> new UsernameNotFoundException(SstbaAppConstants.INVALID_TOKEN_MESSAGE + token));
 		return user;
 	}
 
