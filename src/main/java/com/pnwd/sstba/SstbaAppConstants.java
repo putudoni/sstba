@@ -9,4 +9,6 @@ package com.pnwd.sstba;
  */
 public class SstbaAppConstants {
 
+	public static final String AUTHORIZATION = "API_KEY";
+	
 }
