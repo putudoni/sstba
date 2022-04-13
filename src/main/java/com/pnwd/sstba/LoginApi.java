@@ -37,14 +37,14 @@ public class LoginApi {
 		if(users.isPresent()) {
 			if(passwordEncoder.matches(user.getPassword(), users.get().getPassword())) {
 				Map<String, Object> data = new HashMap<>();
-				data.put("token", users.get().getToken());
+				data.put(SstbaAppConstants.TOKEN_ATTR, users.get().getToken());
 				response.setData(data);
 				response.setMessages("Welcome "+users.get().getUsername());
 			}else {
-				response.setMessages("Invalid password");
+				response.setMessages(SstbaAppConstants.INVALID_PASSWORD_MESSAGE);
 			}
 		}else {
-			response.setMessages("User not found");
+			response.setMessages(SstbaAppConstants.USER_NOTFOUD_MESSAGE);
 		}
 		
 		response.setStatus(HttpStatus.OK.toString());
